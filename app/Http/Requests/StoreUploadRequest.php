@@ -11,7 +11,7 @@ class StoreUploadRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class StoreUploadRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|min:3',
+            'file' => 'file|required|mimes:pdf',
         ];
     }
 }
